@@ -1,0 +1,12 @@
+
+<div ng-controller="newsCtrl">
+    <p>This is the partial for the news.</p>
+    
+    <div ng-class="news" ng-repeat="news in newsCollection">
+        <a ng-href="{{news.link}}">{{news.title}}</a>
+        <a ng-href="index.html#/comments/{{news._id}}"> comments{{news.comments.length}} </a>
+        <span> vote{{news.upvotes}} </span>
+        <span ng-class="up" ng-click="upVote()">+</span>
+        <span ng-class="down"ng-click="downVote()">-</span>
+    </div>
+<div>

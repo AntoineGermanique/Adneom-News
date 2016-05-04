@@ -1,0 +1,9 @@
+<p>comments</p>
+<div ng-controller="commentsCtrl" >
+    <span ng-if="commentsCollection.length===0">aucun commentaire</span>
+    <div ng-repeat="comment in commentsCollection">
+
+        <span>{{comment.body}}</span>
+        <span>{{comment.author}}</span>
+    </div>
+</div>
