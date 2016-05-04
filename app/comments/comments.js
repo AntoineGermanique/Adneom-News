@@ -8,9 +8,17 @@ angular.module('myApp.comments', ['ngRoute','ngResource'])
         $scope.newsId=$routeParams.newsId;
         var Comments=$resource("http://adneom.herokuapp.com/api/posts/:newsId");
         Comments.get({newsId: $scope.newsId},function(news){
+            $scope.news=news;
             $scope.commentsCollection=news.comments;
         });
         $scope.clickComments=function(news){
             
+        };
+        $scope.submit=function(){
+            if($scope.comment.author&&$scope.comment.body){
+                var Comments2=$resource("http://adneom.herokuapp.com/api/posts/:newsId/comments",{newsId:$scope.newsId},{upvote:{method:'PUT'}});
+                var newComments=Comments2.save({body:$scope.comment.body,author:$scope.comment.author});
+                newComments.$save();
+            }
         };
 });

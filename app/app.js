@@ -6,6 +6,7 @@ angular.module('myApp', [
   'ngResource',
   'myApp.news',
   'myApp.comments',
+  'myApp.addnews',
   'myApp.version'
 ]).
 config(['$routeProvider', function($routeProvider) {
@@ -15,5 +16,8 @@ config(['$routeProvider', function($routeProvider) {
           }).when('/comments/:newsId', {
             templateUrl: 'comments/comments.html',
             controller: 'commentsCtrl'
+          }).when('/addnews', {
+            templateUrl: 'addnews/addnews.html',
+            controller: 'addnewsCtrl'
           }).otherwise({redirectTo: '/news'});
 }]);

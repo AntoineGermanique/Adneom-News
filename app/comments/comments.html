@@ -1,5 +1,11 @@
 <p>comments</p>
 <div ng-controller="commentsCtrl" >
+    <a ng-href="{{news.link}}">{{news.title}}</a>
+    <form ng-submit="submit()">
+        <textarea ng-class="body" ng-model="comment.body" required="true"></textarea>
+        <input type="text" ng-model="comment.author" ng-class="author" required="true">
+        <input type="submit" value="post">
+    </form>
     <span ng-if="commentsCollection.length===0">aucun commentaire</span>
     <div ng-repeat="comment in commentsCollection">
 
