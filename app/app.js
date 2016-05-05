@@ -8,8 +8,7 @@ angular.module('myApp', [
   'myApp.comments',
   'myApp.addnews',
   'myApp.version'
-]).
-config(['$routeProvider', function($routeProvider) {
+]).config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/news', {
             templateUrl: 'news/news.html',
             controller: 'newsCtrl'
